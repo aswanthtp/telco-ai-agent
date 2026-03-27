@@ -1,0 +1,323 @@
+// Mock data for the Telecom Operations Dashboard
+
+export const tickets = [
+  {
+    id: 'TKT-001',
+    title: 'Network Outage - Downtown Area',
+    description: 'Multiple customers reporting complete loss of service in downtown sector 5. Base station appears to be offline.',
+    priority: 'critical',
+    status: 'pending_ai_analysis',
+    aiStatus: 'processing',
+    category: 'network',
+    assignee: 'John Smith',
+    createdAt: '2026-03-17T08:30:00Z',
+    updatedAt: '2026-03-17T09:15:00Z',
+    impactedCustomers: 1247,
+    location: 'Downtown - Sector 5',
+    aiConfidence: 92,
+    aiRecommendation: 'Critical infrastructure failure detected. Immediate field technician dispatch required.',
+    estimatedResolutionTime: '2 hours',
+  },
+  {
+    id: 'TKT-002',
+    title: 'Degraded Service - Business District',
+    description: 'Intermittent connectivity issues reported by enterprise customers. Signal strength fluctuating.',
+    priority: 'high',
+    status: 'ai_approved',
+    aiStatus: 'completed',
+    category: 'performance',
+    assignee: 'Sarah Johnson',
+    createdAt: '2026-03-17T07:45:00Z',
+    updatedAt: '2026-03-17T08:30:00Z',
+    impactedCustomers: 342,
+    location: 'Business District - Zone 2',
+    aiConfidence: 88,
+    aiRecommendation: 'Antenna alignment issue identified. Schedule maintenance during off-peak hours.',
+    estimatedResolutionTime: '4 hours',
+  },
+  {
+    id: 'TKT-003',
+    title: 'Fiber Cut - Highway Route 45',
+    description: 'Fiber optic cable damaged due to construction activity. Affecting multiple cell towers.',
+    priority: 'critical',
+    status: 'approved',
+    aiStatus: 'completed',
+    category: 'infrastructure',
+    assignee: 'Mike Chen',
+    createdAt: '2026-03-17T06:00:00Z',
+    updatedAt: '2026-03-17T09:00:00Z',
+    impactedCustomers: 2891,
+    location: 'Highway 45 - Mile Marker 23',
+    aiConfidence: 95,
+    aiRecommendation: 'Physical infrastructure damage confirmed. Emergency repair crew and rerouting required.',
+    estimatedResolutionTime: '6 hours',
+  },
+  {
+    id: 'TKT-004',
+    title: 'Voice Quality Issues - Suburban Area',
+    description: 'Customers reporting poor call quality and dropped calls in suburban region.',
+    priority: 'medium',
+    status: 'pending_ai_analysis',
+    aiStatus: 'processing',
+    category: 'voice',
+    assignee: 'Emily Davis',
+    createdAt: '2026-03-17T09:00:00Z',
+    updatedAt: '2026-03-17T09:10:00Z',
+    impactedCustomers: 156,
+    location: 'Suburban Area - West',
+    aiConfidence: 76,
+    aiRecommendation: 'Analyzing call logs and network parameters. Possible codec configuration issue.',
+    estimatedResolutionTime: '3 hours',
+  },
+  {
+    id: 'TKT-005',
+    title: 'Data Speed Complaints - University Campus',
+    description: 'Students reporting slow data speeds during peak hours. Possible capacity issue.',
+    priority: 'medium',
+    status: 'ai_rejected',
+    aiStatus: 'completed',
+    category: 'data',
+    assignee: 'Robert Wilson',
+    createdAt: '2026-03-17T08:00:00Z',
+    updatedAt: '2026-03-17T08:45:00Z',
+    impactedCustomers: 523,
+    location: 'University Campus - Main',
+    aiConfidence: 82,
+    aiRecommendation: 'Expected congestion during peak hours. No anomaly detected. Consider capacity upgrade.',
+    estimatedResolutionTime: 'N/A',
+  },
+  {
+    id: 'TKT-006',
+    title: 'Cell Tower Power Failure - Rural Area',
+    description: 'Backup power system failed after main power outage. Tower offline.',
+    priority: 'high',
+    status: 'pending_approval',
+    aiStatus: 'completed',
+    category: 'power',
+    assignee: 'Jessica Martinez',
+    createdAt: '2026-03-17T07:15:00Z',
+    updatedAt: '2026-03-17T09:20:00Z',
+    impactedCustomers: 89,
+    location: 'Rural Area - North',
+    aiConfidence: 91,
+    aiRecommendation: 'Battery backup system failure. Immediate generator deployment and battery replacement needed.',
+    estimatedResolutionTime: '5 hours',
+  },
+  {
+    id: 'TKT-007',
+    title: '5G Signal Interference - Industrial Zone',
+    description: 'Interference detected on 5G frequency bands near industrial facilities.',
+    priority: 'high',
+    status: 'pending_ai_analysis',
+    aiStatus: 'analyzing',
+    category: 'spectrum',
+    assignee: 'David Lee',
+    createdAt: '2026-03-17T09:30:00Z',
+    updatedAt: '2026-03-17T09:35:00Z',
+    impactedCustomers: 234,
+    location: 'Industrial Zone - East',
+    aiConfidence: 85,
+    aiRecommendation: 'External RF interference detected. Investigating source and mitigation options.',
+    estimatedResolutionTime: '4 hours',
+  },
+  {
+    id: 'TKT-008',
+    title: 'Roaming Issues - Airport Terminal',
+    description: 'International travelers unable to establish roaming connections.',
+    priority: 'low',
+    status: 'pending_approval',
+    aiStatus: 'completed',
+    category: 'roaming',
+    assignee: 'Anna Thompson',
+    createdAt: '2026-03-17T08:15:00Z',
+    updatedAt: '2026-03-17T09:00:00Z',
+    impactedCustomers: 45,
+    location: 'Airport Terminal 3',
+    aiConfidence: 79,
+    aiRecommendation: 'Roaming partner configuration mismatch. Update roaming agreements and settings.',
+    estimatedResolutionTime: '2 hours',
+  },
+];
+
+export const metrics = {
+  totalTickets: 127,
+  criticalTickets: 8,
+  pendingAIAnalysis: 24,
+  aiApprovalRate: 87,
+  averageResolutionTime: '3.2 hours',
+  activeIncidents: 12,
+  aiProcessingTime: '45 seconds',
+  customerImpact: 5627,
+  networkUptime: 99.7,
+  trendsData: [
+    { date: '2026-03-10', tickets: 45, resolved: 42 },
+    { date: '2026-03-11', tickets: 52, resolved: 48 },
+    { date: '2026-03-12', tickets: 38, resolved: 36 },
+    { date: '2026-03-13', tickets: 61, resolved: 58 },
+    { date: '2026-03-14', tickets: 47, resolved: 45 },
+    { date: '2026-03-15', tickets: 55, resolved: 51 },
+    { date: '2026-03-16', tickets: 49, resolved: 46 },
+    { date: '2026-03-17', tickets: 34, resolved: 28 },
+  ],
+};
+
+export const aiAnalysisDetails = {
+  'TKT-001': {
+    rootCause: 'Base station power supply failure detected through automated diagnostics.',
+    impactAnalysis: {
+      severity: 'Critical',
+      scope: 'Downtown Sector 5 - 1,247 customers affected',
+      businessImpact: 'High priority area with significant revenue impact',
+      slaRisk: 'High - SLA breach imminent if not resolved within 2 hours',
+    },
+    technicalDetails: {
+      affectedServices: ['Voice', 'Data', 'SMS'],
+      networkElements: ['Base Station BS-DS-05', 'Backhaul Router RT-DS-05-01'],
+      alarms: ['Power Supply Failure', 'Loss of Signal', 'Equipment Offline'],
+      lastHealthCheck: '2026-03-17T08:25:00Z - All systems normal',
+    },
+    recommendedActions: [
+      {
+        action: 'Immediate dispatch of field technician to Base Station BS-DS-05',
+        priority: 1,
+        estimatedTime: '30 minutes',
+      },
+      {
+        action: 'Activate backup power systems if available',
+        priority: 2,
+        estimatedTime: '15 minutes',
+      },
+      {
+        action: 'Notify affected enterprise customers via SMS',
+        priority: 3,
+        estimatedTime: '10 minutes',
+      },
+      {
+        action: 'Reroute traffic to adjacent base stations',
+        priority: 4,
+        estimatedTime: '20 minutes',
+      },
+    ],
+    similarIncidents: [
+      { id: 'TKT-985', date: '2026-02-28', resolution: 'Power supply replacement', time: '1.5 hours' },
+      { id: 'TKT-912', date: '2026-02-15', resolution: 'Circuit breaker reset', time: '45 minutes' },
+    ],
+    aiConfidence: 92,
+    processingTime: '42 seconds',
+  },
+  'TKT-002': {
+    rootCause: 'Antenna alignment deviation detected through RF performance monitoring.',
+    impactAnalysis: {
+      severity: 'High',
+      scope: 'Business District Zone 2 - 342 enterprise customers affected',
+      businessImpact: 'Critical business customers with premium SLAs',
+      slaRisk: 'Medium - within acceptable parameters but requires attention',
+    },
+    technicalDetails: {
+      affectedServices: ['Data', 'Voice'],
+      networkElements: ['Antenna Array AA-BD-02', 'Base Station BS-BD-02'],
+      alarms: ['Signal Quality Degradation', 'Intermittent Connectivity'],
+      lastHealthCheck: '2026-03-17T07:30:00Z - Performance degradation detected',
+    },
+    recommendedActions: [
+      {
+        action: 'Schedule antenna alignment during maintenance window (2 AM - 5 AM)',
+        priority: 1,
+        estimatedTime: '2 hours',
+      },
+      {
+        action: 'Run RF optimization algorithms',
+        priority: 2,
+        estimatedTime: '30 minutes',
+      },
+      {
+        action: 'Monitor performance metrics continuously',
+        priority: 3,
+        estimatedTime: 'Ongoing',
+      },
+    ],
+    similarIncidents: [
+      { id: 'TKT-876', date: '2026-02-20', resolution: 'Antenna realignment', time: '3 hours' },
+      { id: 'TKT-743', date: '2026-01-30', resolution: 'RF optimization', time: '2.5 hours' },
+    ],
+    aiConfidence: 88,
+    processingTime: '38 seconds',
+  },
+  'TKT-003': {
+    rootCause: 'Physical fiber optic cable damage confirmed via automated fault localization.',
+    impactAnalysis: {
+      severity: 'Critical',
+      scope: 'Highway 45 corridor - 2,891 customers across multiple towers',
+      businessImpact: 'Major infrastructure damage affecting regional connectivity',
+      slaRisk: 'Critical - Emergency response required',
+    },
+    technicalDetails: {
+      affectedServices: ['Voice', 'Data', 'SMS', 'Backhaul'],
+      networkElements: ['Fiber Route FR-H45-23', 'Cell Towers CT-H45-21/22/23/24'],
+      alarms: ['Fiber Cut Detected', 'Loss of Backhaul', 'Multiple Tower Offline'],
+      lastHealthCheck: '2026-03-17T05:55:00Z - All systems normal',
+    },
+    recommendedActions: [
+      {
+        action: 'Emergency fiber repair crew dispatch to Highway 45 Mile Marker 23',
+        priority: 1,
+        estimatedTime: '1 hour arrival',
+      },
+      {
+        action: 'Activate redundant fiber routes',
+        priority: 2,
+        estimatedTime: '30 minutes',
+      },
+      {
+        action: 'Deploy mobile cell on wheels (COW) if available',
+        priority: 3,
+        estimatedTime: '2 hours',
+      },
+      {
+        action: 'Coordinate with highway construction authority',
+        priority: 4,
+        estimatedTime: '1 hour',
+      },
+    ],
+    similarIncidents: [
+      { id: 'TKT-654', date: '2026-01-10', resolution: 'Fiber splice repair', time: '5.5 hours' },
+      { id: 'TKT-523', date: '2025-12-05', resolution: 'Emergency fiber replacement', time: '8 hours' },
+    ],
+    aiConfidence: 95,
+    processingTime: '51 seconds',
+  },
+};
+
+export const getPriorityColor = (priority) => {
+  const colors = {
+    critical: 'error',
+    high: 'warning',
+    medium: 'info',
+    low: 'success',
+  };
+  return colors[priority] || 'default';
+};
+
+export const getStatusColor = (status) => {
+  const colors = {
+    pending_ai_analysis: 'warning',
+    ai_approved: 'success',
+    ai_rejected: 'error',
+    pending_approval: 'info',
+    approved: 'success',
+    rejected: 'error',
+  };
+  return colors[status] || 'default';
+};
+
+export const getStatusLabel = (status) => {
+  const labels = {
+    pending_ai_analysis: 'Pending AI Analysis',
+    ai_approved: 'AI Approved',
+    ai_rejected: 'AI Rejected',
+    pending_approval: 'Pending Approval',
+    approved: 'Approved',
+    rejected: 'Rejected',
+  };
+  return labels[status] || status;
+};
