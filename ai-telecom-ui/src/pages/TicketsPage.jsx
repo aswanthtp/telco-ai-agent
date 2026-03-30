@@ -437,8 +437,7 @@ const TicketDetailDialog = ({ ticket, open, onClose }) => {
 
 // â”€â”€â”€ Main Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-const TicketsPage = () => {
-  const [tickets] = useState(TICKETS);
+const TicketsPage = ({ tickets = [] }) => {
   const [search, setSearch] = useState('');
   const [filterType, setFilterType] = useState('all');
   const [filterStatus, setFilterStatus] = useState('all');
@@ -453,7 +452,7 @@ const TicketsPage = () => {
       t.customer.id.toLowerCase().includes(q) ||
       t.customer.fullName.toLowerCase().includes(q) ||
       t.complaint.type.toLowerCase().includes(q) ||
-      t.ai.detectedIntent.toLowerCase().includes(q);
+      (t.ai.detectedIntent || '').toLowerCase().includes(q);
     const matchType   = filterType   === 'all' || t.complaint.type === filterType;
     const matchStatus = filterStatus === 'all' || t.status === filterStatus;
     return matchSearch && matchType && matchStatus;
@@ -648,9 +647,9 @@ const TicketsPage = () => {
                     {/* AI Detected Intent */}
                     <TableCell sx={{ whiteSpace: 'nowrap' }}>
                       <Box display="flex" alignItems="center" gap={0.8}>
-                        <SmartToy sx={{ fontSize: 16, color: 'primary.main' }} />
-                        <Typography variant="body2" fontWeight={500}>
-                          {t.ai.detectedIntent}
+                        <SmartToy sx={{ fontSize: 16, color: t.ai.detectedIntent ? 'primary.main' : 'text.disabled' }} />
+                        <Typography variant="body2" fontWeight={500} color={t.ai.detectedIntent ? 'text.primary' : 'text.disabled'}>
+                          {t.ai.detectedIntent || 'Pending AI analysis'}
                         </Typography>
                       </Box>
                     </TableCell>
@@ -662,38 +661,42 @@ const TicketsPage = () => {
 
                     {/* Confidence Score */}
                     <TableCell sx={{ minWidth: 120 }}>
-                      <Box display="flex" alignItems="center" gap={1}>
-                        <Typography
-                          variant="body2"
-                          fontWeight={700}
-                          color={getConfidenceColor(t.ai.confidenceScore)}
-                          sx={{ minWidth: 36 }}
-                        >
-                          {t.ai.confidenceScore}%
-                        </Typography>
-                        <Box sx={{ flex: 1, minWidth: 60 }}>
-                          <LinearProgress
-                            variant="determinate"
-                            value={t.ai.confidenceScore}
-                            color={
-                              t.ai.confidenceScore >= 90
-                                ? 'success'
-                                : t.ai.confidenceScore >= 75
-                                ? 'warning'
-                                : 'error'
-                            }
-                            sx={{ borderRadius: 4, height: 6 }}
-                          />
+                      {t.ai.confidenceScore != null ? (
+                        <Box display="flex" alignItems="center" gap={1}>
+                          <Typography
+                            variant="body2"
+                            fontWeight={700}
+                            color={getConfidenceColor(t.ai.confidenceScore)}
+                            sx={{ minWidth: 36 }}
+                          >
+                            {t.ai.confidenceScore}%
+                          </Typography>
+                          <Box sx={{ flex: 1, minWidth: 60 }}>
+                            <LinearProgress
+                              variant="determinate"
+                              value={t.ai.confidenceScore}
+                              color={
+                                t.ai.confidenceScore >= 90
+                                  ? 'success'
+                                  : t.ai.confidenceScore >= 75
+                                  ? 'warning'
+                                  : 'error'
+                              }
+                              sx={{ borderRadius: 4, height: 6 }}
+                            />
+                          </Box>
                         </Box>
-                      </Box>
+                      ) : (
+                        <Typography variant="caption" color="text.disabled">—</Typography>
+                      )}
                     </TableCell>
 
                     {/* Action Taken */}
                     <TableCell sx={{ maxWidth: 200 }}>
-                      <Tooltip title={t.ai.actionTaken} arrow placement="top">
+                      <Tooltip title={t.ai.actionTaken || ''} arrow placement="top">
                         <Typography
                           variant="caption"
-                          color="text.secondary"
+                          color={t.ai.actionTaken ? 'text.secondary' : 'text.disabled'}
                           sx={{
                             display: '-webkit-box',
                             WebkitLineClamp: 2,
@@ -701,7 +704,7 @@ const TicketsPage = () => {
                             overflow: 'hidden',
                           }}
                         >
-                          {t.ai.actionTaken}
+                          {t.ai.actionTaken || '—'}
                         </Typography>
                       </Tooltip>
                     </TableCell>
@@ -710,8 +713,8 @@ const TicketsPage = () => {
                     <TableCell sx={{ whiteSpace: 'nowrap' }}>
                       <Box display="flex" alignItems="center" gap={0.6}>
                         <AccessTime sx={{ fontSize: 14, color: 'text.secondary' }} />
-                        <Typography variant="body2" fontWeight={600}>
-                          {t.ai.processingTime}
+                        <Typography variant="body2" fontWeight={600} color={t.ai.processingTime ? 'text.primary' : 'text.disabled'}>
+                          {t.ai.processingTime || '—'}
                         </Typography>
                       </Box>
                     </TableCell>
